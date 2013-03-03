@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <link href='{{ STATIC_URL }}style/home.css' rel='stylesheet' />
+  <script src='http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false'></script>
+  <script src='{{ STATIC_URL }}script/util.js'></script>
+  <script src='{{ STATIC_URL }}script/home.js'></script>
+{% endblock head %}
+
+{% block content %}
+
+  <h1>Whachapay?</h1>
+
+  <p id='spiel'>
+    What if getting a great deal on a car were as easy as talking to your
+    neighbors? We make it easy to find out, &quot;Whachapay?&quot;
+  </p>
+
+  <form action='/home/' method='get'>
+    <fieldset class='container'>
+      {{ form.non_field_errors }}
+
+      <ul>
+        <li>
+          {{ form.make_year }}
+        </li>
+        <li>
+          {{ form.make }}
+        </li>
+        <li>
+          {{ form.model }}
+        </li>
+      </ul>
+
+      {{ form.make_year.errors }}
+      {{ form.make.errors }}
+      {{ form.model.errors }}
+
+      {{ form.location }}
+      {{ form.location.errors }}
+      
+      {{ form.place_name }}
+      {{ form.place_name.errors }}
+      {{ form.lat_lng }}
+      {{ form.lat_lng.errors }}
+
+      <div>
+        <input id='enter_btn' name='enter' type='submit' value='Enter a Deal' />
+        <input id='find_btn' name='find' type='submit' value='Find a Deal' />
+      </div>
+    </fieldset>
+  </form>
+
+{% endblock content %}

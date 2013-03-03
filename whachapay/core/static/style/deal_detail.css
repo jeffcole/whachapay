@@ -1,0 +1,8 @@
+table {
+    margin: 16px auto;
+}
+
+th {
+    text-align: left;
+    width: 100px;
+}

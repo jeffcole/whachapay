@@ -1,0 +1,8 @@
+div.container.center {
+    margin: 16px auto;
+    text-align: center;
+}
+
+div.container.center h3 {
+    margin: 16px auto;
+}

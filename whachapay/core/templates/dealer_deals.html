@@ -1,0 +1,73 @@
+{% extends 'vehicle_selection.html' %}
+{% load intcomma from humanize %}
+{% load url from future %}
+
+{% block head %}
+  {{ block.super }}
+
+  <link href='{{ STATIC_URL }}style/dealer_deals.css' rel='stylesheet' />
+  <script src='http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false'></script>
+  <script src='{{ STATIC_URL }}script/util.js'></script>
+  <script src='{{ STATIC_URL }}script/dealer_deals.js'></script>
+  <script>
+    var place = {{ place_json|safe }};
+  </script>
+{% endblock head %}
+
+{% block content %}
+
+  {{ block.super }}
+
+  <h3>Dealer</h3>
+
+  <div class='container'>
+    <div class='item'>
+      {# This div needs an end tag in order for rest of page to render? #}
+      <div id='{{ dealer.place_id }}' class='map'></div>
+      <div>{{ dealer.name }}</div>
+      <div>{{ dealer.address }}</div>
+    </div>
+  </div>
+
+  {% if deals %}
+
+    <h3>Average Price</h3>
+
+    <div class='container'>
+      <h2>${{ dealer_avg|intcomma }}</h2>
+    </div>
+
+    <h3>Deals</h3>
+
+    <div class='container'>    
+    <table>
+      <tr>
+        <th class='left'>Price</th>
+        <th class='center'>Trim</th>
+        <th class='right'>Date</th>
+      </tr>
+        <tr><td colspan='3'><hr /></td></tr>
+      {% for d in deals %}
+        <tr>
+          <td class='left'>
+            <a href='{% url "core.views.deal_detail" d.pk %}'>
+              ${{ d.price|intcomma }}
+            </a>
+          </td>
+          <td class='center'>{{ d.trim.name }}</td>
+          <td class='right'>{{ d.date }}</td>
+        </tr>
+        {% if not forloop.last %}
+          <tr><td colspan='3'><hr /></td></tr>
+        {% endif %}
+      {% endfor %}
+    </table>
+    </div>    
+
+  {% else %}
+    <div class='container center'>
+      <h3>No deals found</h3>
+    </div>      
+  {% endif %}
+
+{% endblock content %}

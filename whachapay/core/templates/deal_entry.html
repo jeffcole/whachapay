@@ -1,0 +1,44 @@
+{% extends 'vehicle_selection.html' %}
+{% load url from future %}
+
+{% block head %}
+  {{ block.super }}
+
+  <link href='{{ STATIC_URL }}style/deal_detail.css' rel='stylesheet' />
+  <script src='http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false'></script>
+  <script src='{{ STATIC_URL }}script/util.js'></script>
+  <script src='{{ STATIC_URL }}script/deal_entry.js'></script>
+  <script>
+    var place = {{ place_json|safe }};
+  </script>
+{% endblock head %}
+
+{% block content %}
+
+  {{ block.super }}
+
+  <h3>Your Dealer</h3>
+
+  <div class='container'>
+    <div class='item'>
+      {# This div needs an end tag in order for rest of page to render? #}
+      <div id='{{ dealer.id }}' class='map'></div>
+      <div>{{ dealer.name }}</div>
+      <div>{{ dealer.vicinity }}</div>
+    </div>
+  </div>
+
+  <h3>Enter Your Deal</h3>
+
+  <form action='{% url "core.views.deal_entry" dealer.id %}' method='post'>
+    {% csrf_token %}
+    <fieldset class='container'>
+      <table>
+        {{ form.as_table }}
+        <tr><th /><td><input name='enter' type='submit' value='Submit' /></td></tr>
+      </table>
+      
+    </fieldset>
+  </form>
+
+{% endblock content %}

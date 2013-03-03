@@ -1,0 +1,60 @@
+{% extends 'vehicle_selection.html' %}
+{% load url from future %}
+
+{% block head %}
+  {{ block.super }}
+
+  <link href='{{ STATIC_URL }}style/dealer_select.css' rel='stylesheet' />
+  <script src='http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false'></script>
+  <script src='{{ STATIC_URL }}script/util.js'></script>
+  <script src='{{ STATIC_URL }}script/dealer_select.js'></script>
+  <script>
+    var places = {{ places_json|safe }};
+  </script>
+{% endblock head %}
+
+{% block content %}
+
+  {{ block.super }}
+
+  {% if results.object_list %}  
+
+    <h3>Dealers near {{ location }}</h3>
+
+    <ul class='container'>
+      {% for r in results.object_list %}
+        <li class='item'>
+          {# This div needs an end tag in order for rest of page to render? #}
+          <div id='{{ r.id }}' class='map'></div>
+          <a href='{% url "core.views.deal_entry" r.id %}'>
+            <div>{{ r.name }}</div>
+          </a>
+          <div>{{ r.vicinity }}</div>
+        </li>
+        {% if not forloop.last %}
+          <hr />
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    <div class='pagination'>
+      {% if results.has_previous %}
+        <a href='?page={{ results.previous_page_number }}'>previous</a>
+      {% endif %}
+
+      <span class='current'>
+        Page {{ results.number }} of {{ results.paginator.num_pages }}
+      </span>
+
+      {% if results.has_next %}
+        <a href='?page={{ results.next_page_number }}'>next</a>
+      {% endif %}
+    </div>
+
+  {% else %}
+    <div class='container center'>
+      <h3>No dealers found near {{ location }}. Try a different location.</h3>
+    </div>
+  {% endif %}
+
+{% endblock content %}

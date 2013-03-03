@@ -1,0 +1,7 @@
+.vehicle {
+    margin: 16px auto;
+    width: 700px;
+}
+
+#id_trim { width: 180px; }
+input[type=submit] { margin-left: 8px; }

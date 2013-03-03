@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <link href='{{ STATIC_URL }}style/vehicle_selection.css' rel='stylesheet' />
+{% endblock head %}
+
+{% block content %}
+
+  <h3>Your Vehicle</h3>
+
+  <div class='container'>
+    <div class='vehicle'>
+      <span>{{ vehicle.text.year }}</span>
+      <span>{{ vehicle.text.make_name }}</span>
+      <span>{{ vehicle.text.model_name }}</span>
+    </div>
+    {% if form_action %}
+      <form class='vehicle'
+        {% if form_action == 'dealer_deals' %}
+          action='/home/{{ form_action }}/{{ dealer.place_id }}/'
+        {% else %}
+          action='/home/{{ form_action }}/'
+        {% endif %}
+        method='get'>
+        {{ form.trim }}<input type='submit' value='Filter' />
+      </form>
+    {% endif %}
+  </div>
+
+{% endblock content %}

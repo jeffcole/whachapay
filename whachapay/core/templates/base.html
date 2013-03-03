@@ -1,0 +1,29 @@
+{% load url from future %}
+
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link href='{{ STATIC_URL }}style/bootstrap.min.css' rel='stylesheet' />
+    <link href='{{ STATIC_URL }}style/base.css' rel='stylesheet' />
+    <!--[if lt IE 9]>
+        <script src='//html5shiv.googlecode.com/svn/trunk/html5.js'></script>
+        <![endif]-->
+    <script src='{{ STATIC_URL }}script/jquery.min.js'></script>
+    <script src='{{ STATIC_URL }}script/bootstrap.min.js'></script>
+    <title>{% block title %}Whachapay{% endblock %}</title>
+
+    {% block head %}{% endblock %}
+  </head>
+
+  <body>
+    <section>
+      {% block content %}{% endblock %}
+    </section>
+    <footer>
+      {% block footer %}
+        <a href='{% url "core.views.home" %}'>Home</a>
+      {% endblock footer%}
+    </footer>
+  </body>
+</html>

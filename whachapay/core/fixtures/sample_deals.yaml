@@ -1,0 +1,166 @@
+- fields: {name: BMW}
+  model: core.make
+  pk: 1
+- fields: {name: Ford}
+  model: core.make
+  pk: 2
+- fields: {name: Honda}
+  model: core.make
+  pk: 3
+- fields: {make: 1, year: 2012}
+  model: core.makeyear
+  pk: 1
+- fields: {make: 2, year: 2013}
+  model: core.makeyear
+  pk: 2
+- fields: {make: 3, year: 2013}
+  model: core.makeyear
+  pk: 4
+- fields: {make: 3, year: 2012}
+  model: core.makeyear
+  pk: 3
+- fields: {make: 1, name: 3 Series}
+  model: core.model
+  pk: 1
+- fields: {make: 2, name: Fiesta}
+  model: core.model
+  pk: 2
+- fields: {make: 3, name: Fit}
+  model: core.model
+  pk: 3
+- fields: {model: 1, year: 2012}
+  model: core.modelyear
+  pk: 1
+- fields: {model: 2, year: 2013}
+  model: core.modelyear
+  pk: 2
+- fields: {model: 3, year: 2013}
+  model: core.modelyear
+  pk: 4
+- fields: {model: 3, year: 2012}
+  model: core.modelyear
+  pk: 3
+- fields: {model: 1, name: 328i Sedan}
+  model: core.trim
+  pk: 1
+- fields: {model: 1, name: 335i Sedan}
+  model: core.trim
+  pk: 2
+- fields: {model: 2, name: Sedan S}
+  model: core.trim
+  pk: 3
+- fields: {model: 3, name: Fit}
+  model: core.trim
+  pk: 4
+- fields: {model: 3, name: Fit Sport}
+  model: core.trim
+  pk: 5
+- fields: {trim: 1, year: 2012}
+  model: core.trimyear
+  pk: 1
+- fields: {trim: 2, year: 2012}
+  model: core.trimyear
+  pk: 2
+- fields: {trim: 3, year: 2013}
+  model: core.trimyear
+  pk: 3
+- fields: {trim: 4, year: 2012}
+  model: core.trimyear
+  pk: 4
+- fields: {trim: 5, year: 2013}
+  model: core.trimyear
+  pk: 5
+- fields: {make: 1, make_year: 1, model: 1}
+  model: core.vehicle
+  pk: 1
+- fields: {email: al@customer.com}
+  model: core.user
+  pk: 4
+- fields: {email: alice@customer.com}
+  model: core.user
+  pk: 8
+- fields: {email: jack@customer.com}
+  model: core.user
+  pk: 3
+- fields: {email: jane@customer.com}
+  model: core.user
+  pk: 2
+- fields: {email: jill@customer.com}
+  model: core.user
+  pk: 7
+- fields: {email: jim@customer.com}
+  model: core.user
+  pk: 6
+- fields: {email: joe@customer.com}
+  model: core.user
+  pk: 1
+- fields: {email: sally@customer.com}
+  model: core.user
+  pk: 5
+- fields: {ip: 127.0.0.1}
+  model: core.ipaddress
+  pk: 1
+- fields: {ip: 1, user: 4}
+  model: core.userip
+  pk: 4
+- fields: {ip: 1, user: 8}
+  model: core.userip
+  pk: 8
+- fields: {ip: 1, user: 3}
+  model: core.userip
+  pk: 3
+- fields: {ip: 1, user: 2}
+  model: core.userip
+  pk: 2
+- fields: {ip: 1, user: 7}
+  model: core.userip
+  pk: 7
+- fields: {ip: 1, user: 6}
+  model: core.userip
+  pk: 6
+- fields: {ip: 1, user: 1}
+  model: core.userip
+  pk: 1
+- fields: {ip: 1, user: 5}
+  model: core.userip
+  pk: 5
+- fields: {address: '777 Kapiolani Boulevard, Honolulu', location: '21.300311,-157.853781',
+    name: BMW of Honolulu, place_id: ad76924a25faa79a7a60ffe4aef03cd8e87a073e}
+  model: core.dealer
+  pk: 1
+- fields: {address: '1370 N King St, Honolulu', location: '21.328933,-157.870342',
+    name: Honolulu Ford New and Used Car Sales, place_id: faba111bb43d6ac1f42e308b4dff2475d2b8562b}
+  model: core.dealer
+  pk: 2
+- fields: {comment: 'Friendly salespeople, very pleased.', date: 2013-03-20, dealer: 1,
+    price: 30000, trim: 1, user_ip: 1, vehicle: 1}
+  model: core.deal
+  pk: 1
+- fields: {comment: Would have liked to get the price down a little lower., date: 2013-03-10,
+    dealer: 1, price: 32000, trim: 1, user_ip: 4, vehicle: 1}
+  model: core.deal
+  pk: 4
+- fields: {comment: Test drive sold me., date: 2013-03-20, dealer: 1, price: 35000,
+    trim: 2, user_ip: 2, vehicle: 1}
+  model: core.deal
+  pk: 2
+- fields: {comment: I took advantage of their model-year-end sale., date: 2013-03-18,
+    dealer: 1, price: 38000, trim: 2, user_ip: 8, vehicle: 1}
+  model: core.deal
+  pk: 8
+- fields: {comment: I was willing to pay a little more., date: 2013-03-14, dealer: 1,
+    price: 40000, trim: 2, user_ip: 3, vehicle: 1}
+  model: core.deal
+  pk: 3
+- fields: {comment: Glad I bought used!, date: 2013-03-20, dealer: 2, price: 22000,
+    trim: 1, user_ip: 5, vehicle: 1}
+  model: core.deal
+  pk: 5
+- fields: {comment: Best used car dealership in Honolulu., date: 2013-03-01, dealer: 2,
+    price: 24000, trim: 2, user_ip: 6, vehicle: 1}
+  model: core.deal
+  pk: 6
+- fields: {comment: My cousin is a salesman there!, date: 2013-03-15, dealer: 2, price: 25000,
+    trim: 1, user_ip: 7, vehicle: 1}
+  model: core.deal
+  pk: 7

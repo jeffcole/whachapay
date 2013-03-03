@@ -1,0 +1,81 @@
+{% extends 'vehicle_selection.html' %}
+{% load intcomma from humanize %}
+{% load url from future %}
+
+{% block head %}
+  {{ block.super }}
+
+  <link href='{{ STATIC_URL }}style/area_summary.css' rel='stylesheet' />
+  <script src='http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false'></script>
+  <script src='{{ STATIC_URL }}script/util.js'></script>
+  <script src='{{ STATIC_URL }}script/area_summary.js'></script>
+  <script>
+    var places = {{ places_json|safe }};
+  </script>
+{% endblock head %}
+
+{% block content %}
+
+  {{ block.super }}
+
+  {% if dealers.object_list %}
+    <h3>Average Price near {{ location }}</h3>
+    <div class='container'>
+      <h2>${{ area_avg|intcomma }}</h2>
+    </div>
+
+    <h3>Dealers</h3>
+
+    <div class='container'>
+      <table>
+        <tr>
+          <th class='left'>Name and Location</th>
+          <th>Average Price</th>
+          <th class='right'>Map</th>
+        </tr>
+        <tr><td colspan='3'><hr /></td></tr>
+        {% for d in dealers.object_list %}
+          <tr>
+            <td>
+              <div>
+                <a href='{% url "core.views.dealer_deals" d.obj.place_id %}'>
+                  {{ d.obj.name }}
+                </a>
+              </div>
+              <div>{{ d.obj.address }}</div>
+            </td>
+            <td class='center'>
+              ${{ d.avg|intcomma }}
+            </td>
+            <td>
+              <div id='{{ d.obj.place_id }}' class='map'/>
+            </td>
+          </tr>
+          {% if not forloop.last %}
+            <tr><td colspan='3'><hr /></td></tr>
+          {% endif %}
+        {% endfor %}
+      </table>
+    </div>
+
+    <div class='pagination'>
+      {% if dealers.has_previous %}
+        <a href='?page={{ dealers.previous_page_number }}'>previous</a>
+      {% endif %}
+
+      <span class='current'>
+        Page {{ dealers.number }} of {{ dealers.paginator.num_pages }}
+      </span>
+
+      {% if dealers.has_next %}
+        <a href='?page={{ dealers.next_page_number }}'>next</a>
+      {% endif %}
+    </div>
+
+  {% else %}
+    <div class='container center'>
+      <h3>No deals found near {{ location }}</h3>
+    </div>
+  {% endif %}
+
+{% endblock content %}

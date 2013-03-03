@@ -1,0 +1,140 @@
+- model: core.Make
+  pk: 1
+  fields:
+    name: BMW
+
+- model: core.Make
+  pk: 2
+  fields:
+    name: Ford
+
+- model: core.Make
+  pk: 3
+  fields:
+    name: Honda
+
+- model: core.MakeYear
+  pk: 1
+  fields:
+    make: 1
+    year: 2012
+
+- model: core.MakeYear
+  pk: 2
+  fields:
+    make: 2
+    year: 2013
+
+- model: core.MakeYear
+  pk: 3
+  fields:
+    make: 3
+    year: 2012
+
+- model: core.MakeYear
+  pk: 4
+  fields:
+    make: 3
+    year: 2013
+
+- model: core.Model
+  pk: 1
+  fields:
+    make: 1
+    name: 3 Series
+
+- model: core.Model
+  pk: 2
+  fields:
+    make: 2
+    name: Fiesta
+
+- model: core.Model
+  pk: 3
+  fields:
+    make: 3
+    name: Fit
+
+- model: core.ModelYear
+  pk: 1
+  fields:
+    model: 1
+    year: 2012
+
+- model: core.ModelYear
+  pk: 2
+  fields:
+    model: 2
+    year: 2013
+
+- model: core.ModelYear
+  pk: 3
+  fields:
+    model: 3
+    year: 2012
+
+- model: core.ModelYear
+  pk: 4
+  fields:
+    model: 3
+    year: 2013
+
+- model: core.Trim
+  pk: 1
+  fields:
+    model: 1
+    name: 328i Sedan
+
+- model: core.Trim
+  pk: 2
+  fields:
+    model: 1
+    name: 335i Sedan
+
+- model: core.Trim
+  pk: 3
+  fields:
+    model: 2
+    name: Sedan S
+
+- model: core.Trim
+  pk: 4
+  fields:
+    model: 3
+    name: Fit
+
+- model: core.Trim
+  pk: 5
+  fields:
+    model: 3
+    name: Fit Sport
+
+- model: core.TrimYear
+  pk: 1
+  fields:
+    trim: 1
+    year: 2012
+
+- model: core.TrimYear
+  pk: 2
+  fields:
+    trim: 2
+    year: 2012
+
+- model: core.TrimYear
+  pk: 3
+  fields:
+    trim: 3
+    year: 2013
+
+- model: core.TrimYear
+  pk: 4
+  fields:
+    trim: 4
+    year: 2012
+
+- model: core.TrimYear
+  pk: 5
+  fields:
+    trim: 5
+    year: 2013

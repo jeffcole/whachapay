@@ -1,0 +1,13 @@
+h2 { width: 700px; }
+
+table {
+    margin: 16px auto;
+}
+
+.left { text-align: left; }
+.center { text-align: center; }
+.right { text-align: right; }
+
+div.container.center {
+    margin: 16px auto;
+}
