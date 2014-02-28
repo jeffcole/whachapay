@@ -12,9 +12,6 @@ Whachapay is a crowd-sourced automobile pricing site. It supports two use cases:
 
 The site uses the Google Maps `Web Services`_ and JavaScript_ APIs to provide dynamic results for automobile dealerships; thus it can be used in any location without the need for manual management of dealership data.
 
-A demo of the site is hosted here_. Sample deals can be browsed by selecting a 2012 BMW 3 Series, entering Honolulu, HI for the location and selecting *Find a Deal*.
-
 
 .. _Web Services: https://developers.google.com/maps/documentation/webservices/
 .. _JavaScript: https://developers.google.com/maps/documentation/javascript/
-.. _here: http://whachapay.herokuapp.com/
